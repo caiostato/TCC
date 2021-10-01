@@ -1,9 +1,9 @@
-import Mapping from './Components/Map.js';
+import Mapping from './Components/Map';
 
 function App() {
   return (
     Mapping()
-    );
+  )
 }
 
 export default App;
