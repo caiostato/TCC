@@ -1,0 +1,21 @@
+{
+    "unidade":[
+        {
+            "id":"00",
+            "nome":"teste",
+            "cep":"",
+            "logradouro":"",
+            "numero":"",
+            "complemento":"",
+            "tipoEstabelecimento":"",
+            "quimioRadio":"bool",
+            "dialise":"bool",
+            "hemoterapia":"bool",
+            "atencaoPrimaria":"",
+            "imunizacao":"",
+            "profissionais":[]	
+        }
+
+
+    ]
+}
