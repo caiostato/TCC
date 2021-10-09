@@ -8,6 +8,8 @@ from bs4 import BeautifulSoup
 from lxml import html
 import json
 
+from modules.info import getInfo
+
 def ficha(index):
     try:
         try:
@@ -26,10 +28,7 @@ def ficha(index):
             EC.presence_of_element_located((By.XPATH,'//*[@id="estabContent"]/div/section/div[3]/div/div[2]'))
             )
 
-        # row 1 //*[@id="estabContent"]/div/section/div[3]/div/div[2]/div[1]/div/form/div[1]
-        # row 2 //*[@id="estabContent"]/div/section/div[3]/div/div[2]/div[1]/div/form/div[2]
 
-        #<input class="form-control input-sm" id="nome" type="text" ng-value="estabelecimento.noFantasia" readonly="" value="CENTRO DE SAUDE BARAO GERALDO">
         # pos=116
 
         finally:
@@ -40,47 +39,30 @@ def ficha(index):
                 rowChild = y.find_element_by_tag_name('input')
                 rowChild = rowChild.get_attribute('outerHTML')
                 rowChild = rowChild.split(">")
+                
+                
                 for z in range(len(rowChild)):
-                    # find='CENTRO DE SAUDE'
-                    # posicao = int (rowChild[z].index(find) + len(find))
-                    # aux = rowChild[z]
-                    # rowChild[z]=''
                     
-                    # for w in range(posicao,len(aux)):
-                    #     print(aux[w])
-                    #     while(aux[w]!='"'):
-                    #         rowChild[z] = rowChild[z] + aux[w]
-
-                    
-                    # find = 'CENTRO DE SAUDE'
-                    # aux= ''
-                    # pos = rowChild[z].index(find)
-
-                    # print(pos)
-
-                    # for w in range(pos,len(rowChild)):
-                    #     type(rowChild[z].index(w))
+                    #<input class="form-control input-sm" id="nome" type="text" ng-value="estabelecimento.noFantasia" readonly="" value="CENTRO DE SAUDE BARAO GERALDO">
+                    if z==0 and x==0:
+                        #OK
+                        find = 'CENTRO DE SAUDE'
+                        aux= ''
+                        p = rowChild[z]
+                        pos = p.index(find)
                         
+                        for w in range(pos,len(p)):
+                            if p[w]=='"' or p[w]=='>':
+                                pass
+                            else:
+                                aux = aux + p[w]
 
-                    
+                        rowChild[z]=aux
+                        print(aux)
 
-                    
-
-                        
-
-                # htmlNome = web.find_element_by_id('nome')
-                # htmlNome = htmlNome.get_attribute('outerHTML')
-                # soup = BeautifulSoup(htmlNome,'html.parser')
-                # soup.find('input')['value']
-                # #Cep
-                # htmlCEP = web.find_element_by_id('cnpj')
-                # htmlCEP = htmlCEP.get_attribute('outerHTML')
-                # print(htmlCEP)
-
-                # soup = BeautifulSoup(htmlCEP,'html.parser')
-                # soup.find('input')['value']
-                # cpnj = tree.xpath('//input[@id="cnpj"]/text()')
-                # print(cpnj)
+                    #<input class="form-control input-sm" id="cnpj" type="text" ng-value="estabelecimento.noEmpresarial" readonly="" value="PREFEITURA MUNICIPAL DE CAMPINAS">
+                    elif z==1:
+                        pass
 
     except:
         web.close()
