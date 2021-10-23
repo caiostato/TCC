@@ -1,3 +1,4 @@
+from bs4.element import PreformattedString, ProcessingInstruction, SoupStrainer
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -13,12 +14,15 @@ from modules.info import getInfo
 def ficha(index):
     try:
         try:
+            #Espera 2sec para achar o element da clickable a ficha detalhada dado o index
             WebDriverWait(web,2).until(
                 EC.presence_of_element_located((By.XPATH,'/html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody/tr['+str(index)+']/td[8]/a'))
             )
 
         finally:
+            #Pega o atributo href do clickable da ficha detalhada
             elem = web.find_element_by_xpath('/html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody/tr['+str(index)+']/td[8]/a').get_attribute('href')
+            #Abre outra aba e setas a url para o attr do href
             web.execute_script("window.open('about:blank','secondtab');")
             web.switch_to.window("secondtab")
             web.get(elem)
@@ -32,37 +36,40 @@ def ficha(index):
         # pos=116
 
         finally:
-            row = []
+            
+            html_table = web.find_element_by_xpath('//*[@id="estabContent"]/div/section/div[3]/div/div[2]')
+            html_table = html_table.get_attribute('innerHTML')
+            soup = BeautifulSoup(html_table, 'html.parser')
+            
+            data = soup.find_all('div', attrs={"class": "form-group"})
+            
+            for each in data:
+                value = each.input['value']
+                print(value)
 
-            for x in range(6):
-                y = web.find_element_by_xpath('//*[@id="estabContent"]/div/section/div[3]/div/div[2]/div[1]/div/form/div['+str(x+1)+']')
-                rowChild = y.find_element_by_tag_name('input')
-                rowChild = rowChild.get_attribute('outerHTML')
-                rowChild = rowChild.split(">")
+                btnAmbulatorial = web.find_element_by_xpath('//*[@id="estabContent"]/aside/section/ul/li[3]/a')
+                btnAmbulatorial.click()
+
+            dataServicos = []
+
+            servCount = 1
+            for servCount in range(3):
+                button = web.find_element_by_xpath('//*[@id="estabContent"]/aside/section/ul/li[3]/ul/li['+ str(servCount) +']/a')
+                button.click()
+
+                try:
+                    WebDriverWait(web,10).until(
+                    EC.presence_of_element_located((By.XPATH,'//*[@id="estabContent"]/div/section/div[3]/div'))
+                    )
+                finally:
+                    htmlResponse = web.find_element_by_xpath('//*[@id="estabContent"]/div/section/div[3]/div')
+                    htmlResponse = htmlResponse.get_attribute('innerHTML')
+                    soup1 = BeautifulSoup(html_table, 'html.parser')
+                    print(soup1)
+                    # soup1 = soup1.
                 
                 
-                for z in range(len(rowChild)):
-                    
-                    #<input class="form-control input-sm" id="nome" type="text" ng-value="estabelecimento.noFantasia" readonly="" value="CENTRO DE SAUDE BARAO GERALDO">
-                    if z==0 and x==0:
-                        #OK
-                        find = 'CENTRO DE SAUDE'
-                        aux= ''
-                        p = rowChild[z]
-                        pos = p.index(find)
-                        
-                        for w in range(pos,len(p)):
-                            if p[w]=='"' or p[w]=='>':
-                                pass
-                            else:
-                                aux = aux + p[w]
 
-                        rowChild[z]=aux
-                        print(aux)
-
-                    #<input class="form-control input-sm" id="cnpj" type="text" ng-value="estabelecimento.noEmpresarial" readonly="" value="PREFEITURA MUNICIPAL DE CAMPINAS">
-                    elif z==1:
-                        pass
 
     except:
         web.close()
