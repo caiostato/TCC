@@ -6,7 +6,7 @@
             "cep":"",
             "logradouro":"",
             "numero":"",
-            "complemento":"",
+            "telefone":"",
             "tipoEstabelecimento":"",
             "quimioRadio":"bool",
             "dialise":"bool",

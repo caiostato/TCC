@@ -8,71 +8,102 @@ import time
 from bs4 import BeautifulSoup
 from lxml import html
 import json
-
 from modules.info import getInfo
 
+cont = 1
+
 def ficha(index):
+
     try:
-        try:
-            #Espera 2sec para achar o element da clickable a ficha detalhada dado o index
-            WebDriverWait(web,2).until(
-                EC.presence_of_element_located((By.XPATH,'/html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody/tr['+str(index)+']/td[8]/a'))
-            )
+        #Espera 2sec para achar o element da clickable a ficha detalhada dado o index
+        WebDriverWait(web,2).until(
+            EC.presence_of_element_located((By.XPATH,'/html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody/tr['+str(index)+']/td[8]/a'))
+        )
 
-        finally:
-            #Pega o atributo href do clickable da ficha detalhada
-            elem = web.find_element_by_xpath('/html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody/tr['+str(index)+']/td[8]/a').get_attribute('href')
-            #Abre outra aba e setas a url para o attr do href
-            web.execute_script("window.open('about:blank','secondtab');")
-            web.switch_to.window("secondtab")
-            web.get(elem)
+    finally:
+        #Pega o atributo href do clickable da ficha detalhada
+        elem = web.find_element_by_xpath('/html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody/tr['+str(index)+']/td[8]/a').get_attribute('href')
+        #Abre outra aba e setas a url para o attr do href
+        web.execute_script("window.open('about:blank','secondtab');")
+        web.switch_to.window("secondtab")
+        web.get(elem)
 
-        try:
-            WebDriverWait(web,10).until(
-            EC.presence_of_element_located((By.XPATH,'//*[@id="estabContent"]/div/section/div[3]/div/div[2]'))
-            )
+    try:
+        WebDriverWait(web,10).until(
+        EC.presence_of_element_located((By.XPATH,'//*[@id="estabContent"]/div/section/div[3]/div/div[2]'))
+        )
 
+    finally:
+        
+        #Pega o codigo html da table bootstrap
+        html_table = web.find_element_by_xpath('//*[@id="estabContent"]/div/section/div[3]/div/div[2]')
+        html_table = html_table.get_attribute('innerHTML')
+        soup = BeautifulSoup(html_table, 'html.parser')
+        #Separa os campos do HTML em lista
+        data = soup.find_all('div', attrs={"class": "form-group"})
 
-        # pos=116
+        # data_list = []
 
-        finally:
-            
-            html_table = web.find_element_by_xpath('//*[@id="estabContent"]/div/section/div[3]/div/div[2]')
-            html_table = html_table.get_attribute('innerHTML')
-            soup = BeautifulSoup(html_table, 'html.parser')
-            
-            data = soup.find_all('div', attrs={"class": "form-group"})
-            
-            for each in data:
-                value = each.input['value']
-                print(value)
+        #Clica botao ambulatorial
+        item = web.find_element_by_xpath("/html/body/div[2]/main/div/div[3]/div[1]/aside/section/ul/li[3]/a")
+        item.click()
 
-                btnAmbulatorial = web.find_element_by_xpath('//*[@id="estabContent"]/aside/section/ul/li[3]/a')
-                btnAmbulatorial.click()
+        WebDriverWait(web,2).until(
+            EC.presence_of_element_located((By.XPATH,"//section[@class='sidebar']/ul/li[3]/ul/li[1]/a"))
+        )
 
-            dataServicos = []
+        #Clica em dialise
+        especialidade = web.find_element_by_xpath("//section[@class='sidebar']/ul/li[3]/ul/li[1]/a")
+        especialidade.click()
 
-            servCount = 1
-            for servCount in range(3):
-                button = web.find_element_by_xpath('//*[@id="estabContent"]/aside/section/ul/li[3]/ul/li['+ str(servCount) +']/a')
-                button.click()
+        WebDriverWait(web,5).until(
+            EC.presence_of_element_located((By.XPATH,"//*[@id='estabContent']/div/section/div[3]/div/div[2]/div[2]"))
+        )
+        
+        item2 = web.find_element_by_xpath("//*[@id='estabContent']/div/section/div[3]/div/div[2]/div[2]")
 
-                try:
-                    WebDriverWait(web,10).until(
-                    EC.presence_of_element_located((By.XPATH,'//*[@id="estabContent"]/div/section/div[3]/div'))
-                    )
-                finally:
-                    htmlResponse = web.find_element_by_xpath('//*[@id="estabContent"]/div/section/div[3]/div')
-                    htmlResponse = htmlResponse.get_attribute('innerHTML')
-                    soup1 = BeautifulSoup(html_table, 'html.parser')
-                    print(soup1)
-                    # soup1 = soup1.
-                
-                
+        result = item2.get_attribute('innerHTML')
+        soup = BeautifulSoup(result, 'html.parser')
+        item2 = soup.find('text')
+        print(item2)
 
+        #Printa os values da lista 
+        for each in data:   
+            value = each.input['value']
+            print(value)
+    #     data_list.append(value)
 
-    except:
-        web.close()
+        # print(data_list)
+
+        # output_data = {}
+        # output_data["unidade"] = []
+        # output_data["unidade"].append({
+        #         "id": cont,
+        #         "nome": data_list[0],
+        #         "cep": data_list[10],
+        #         "logradouro": data_list[5]+', '+data_list[7]+', '+data_list[8],
+        #         "numero": data_list[6],
+        #         "telefone": data_list[11],
+        #         "tipoEstabelecimento": data_list[14]
+        # })
+
+        # with open('json/unidades.json', 'w') as outfile:
+        #     json.dump(output_data, outfile)
+        
+        # btnAmbulatorial = web.find_element_by_xpath('//*[@id="estabContent"]/aside/section/ul/li[3]/a')
+        # btnAmbulatorial.click()
+
+        # dataServicos = []
+        
+        # special = web.find_element_by_xpath('//*[@id="estabContent"]/aside/section/ul/li[3]/ul/li[2]/a')
+        # print(special.text)
+
+        # special = web.find_element_by_xpath('//*[@id="estabContent"]/aside/section/ul/li[3]/ul/li[3]/a')
+        # print(special.text)
+        # special.click()
+
+        # item = web.find_element_by_xpath('//*[@id="estabContent"]/div/section/div[1]/div[2]/div[2]/form/div[1]/div[1]/input')
+        # print(item.get_attribute('value'))
         
 
 def fill():
@@ -108,10 +139,6 @@ try:
 except:
     web.quit()
     
-
-data={}
-data['unidade']=[]
-
 time.sleep(2)
 
 fill()
