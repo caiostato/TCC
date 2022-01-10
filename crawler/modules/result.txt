@@ -1,0 +1,93 @@
+datalist output
+[<div class="form-group">
+<label>Nome</label>
+<input class="form-control input-sm" id="nome" ng-value="estabelecimento.noFantasia" readonly="" type="text"/>
+</div>, <div class="form-group">
+<label>CNES</label>
+<input class="form-control input-sm" id="cnes" ng-value="estabelecimento.cnes" readonly="" type="text"/>
+</div>, <div class="form-group">
+<label>CNPJ</label>
+<input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.cnpj != null ? (estabelecimento.cnpj.substring(0, 2) + '.'
+                                                        + estabelecimento.cnpj.substring(2, 5) + '.'
+                                                        + estabelecimento.cnpj.substring(5, 8) + '/'
+                                                        + estabelecimento.cnpj.substring(8, 12) + '-'
+                                                        + estabelecimento.cnpj.substring(12, 14)): '---'" readonly="" type="text" ui-mask="99.999.999/9999-99" value="---"/>
+</div>, <div class="form-group">
+<label>Nome Empresarial</label>
+<input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.noEmpresarial" readonly="" type="text"/>
+</div>, <div class="form-group">
+<label>Logradouro</label>
+<input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.noLogradouro" readonly="" type="text"/>
+</div>, <div class="form-group">
+<label>Número</label>
+<input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.nuEndereco" readonly="" type="text"/>
+</div>, <div class="form-group">
+<label>Complemento</label>
+<input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.noComplemento" readonly="" type="text"/>
+</div>, <div class="form-group">
+<label>Bairro</label>
+<input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.bairro" readonly="" type="text"/>
+</div>, <div class="form-group">
+<label>Município</label>
+<input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.municipio + ' - ' + estabelecimento.noMunicipio" readonly="" type="text" value=" - "/>
+</div>, <div class="form-group">
+<label>UF</label>
+<input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.uf" readonly="" type="text"/>
+</div>, <div class="form-group">
+<label>CEP</label>
+<input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.cep!=null?(estabelecimento.cep.substring(0, 5) + '-' + estabelecimento.cep.substring(5, 8)): '---'" readonly="" type="text" ui-mask="99999-999" value="---"/>
+</div>, <div class="form-group">
+<label>Telefone</label>
+<input class="form-control input-sm" id="tel" ng-value="formatarTelefone(estabelecimento.nuTelefone)" readonly="" type="text" value="--"/>
+<!--                                            <input class="form-control input-sm" id="cnpj" type="text" ng-value=
+                                                  "(estabelecimento.nuTelefone != null && estabelecimento.nuTelefone.length == 10) ? '(' + estabelecimento.nuTelefone.substring(0,2) + ')' + estabelecimento.nuTelefone.substring(2,6) + '-' + estabelecimento.nuTelefone.substring(6,10) :
+                                                  (estabelecimento.nuTelefone != null && estabelecimento.nuTelefone.length == 11) ? '(' + estabelecimento.nuTelefone.substring(0,2) + ')' + estabelecimento.nuTelefone.substring(2,7) + '-' + estabelecimento.nuTelefone.substring(7,11) :
+                                                  (estabelecimento.nuTelefone != null) ? estabelecimento.nuTelefone : '---'"
+                                                readonly>
+ --> </div>, <div class="form-group">
+<label>Dependência</label>
+<input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.nvDependencia == '1' ? 'INDIVIDUAL' : estabelecimento.nvDependencia == '3' ? 'MANTIDA': ''" readonly="" type="text" value=""/>
+</div>, <div class="form-group">
+<label>Regional de Saúde</label>
+<input class="form-control input-sm" id="regSaude" ng-value="estabelecimento.regionalSaude" readonly="" type="text"/>
+</div>, <div class="form-group">
+<label>Tipo de Estabelecimento</label>
+<input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.dsTpUnidade" readonly="" type="text"/>
+</div>, <div class="form-group">
+<label>Subtipo de Estabelecimento</label>
+<input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.dsStpUnidade" readonly="" type="text"/>
+</div>, <div class="form-group">
+<label>Gestão</label>
+<input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.tpGestao == 'M' ? 'MUNICIPAL' : estabelecimento.tpGestao == 'E' ? 'ESTADUAL' :  estabelecimento.tpGestao == 'D' ? 'DUPLA' : '' " readonly="" type="text" value=""/>
+</div>, <div class="form-group">
+<label>Diretor Clínico/Gerente/Administrador</label>
+<input class="form-control input-sm" id="diretor" ng-value="estabelecimento.diretor.nome" readonly="" type="text"/>
+</div>, <div class="form-group">
+<label>Cadastrado em</label>
+<input class="form-control input-sm" ng-value="estabelecimento.dtAtualizacaoOrigem" readonly="" type="text"/>
+</div>, <div class="form-group">
+<label>Atualização na Base Local</label>
+<input class="form-control input-sm" ng-value="estabelecimento.dtAtualizacao" readonly="" type="text"/>
+</div>, <div class="form-group">
+<label>Última atualização Nacional</label>
+<input class="form-control input-sm" ng-value="estabelecimento.dtCarga" readonly="" type="text"/>
+</div>, <div class="form-group">
+<label>Horário de funcionamento</label>
+<input class="form-control input-sm" id="cnpj" readonly="" type="text" value="Não informado"/>
+</div>]
+
+
+
+
+
+
+
+[['\n', <label>Nome</label>, '\n', <input class="form-control input-sm" id="nome" ng-value="estabelecimento.noFantasia" readonly="" type="text"/>, '\n'], ['\n', <label>CNES</label>, '\n', <input class="form-control input-sm" id="cnes" ng-value="estabelecimento.cnes" readonly="" type="text"/>, '\n'], ['\n', <label>CNPJ</label>, '\n', <input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.cnpj != 
+null ? (estabelecimento.cnpj.substring(0, 2) + '.'
+                                                        + estabelecimento.cnpj.substring(2, 5) + '.'
+                                                        + estabelecimento.cnpj.substring(5, 8) + '/'
+                                                        + estabelecimento.cnpj.substring(8, 12) + '-'
+                                                        + estabelecimento.cnpj.substring(12, 14)): '---'" readonly="" type="text" ui-mask="99.999.999/9999-99" value="---"/>, '\n'], ['\n', <label>Nome Empresarial</label>, '\n', <input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.noEmpresarial" readonly="" type="text"/>, '\n'], ['\n', <label>Logradouro</label>, '\n', <input class="form-control 
+input-sm" id="cnpj" ng-value="estabelecimento.noLogradouro" readonly="" type="text"/>, '\n'], ['\n', <label>Número</label>, '\n', <input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.nuEndereco" readonly="" type="text"/>, '\n'], ['\n', <label>Complemento</label>, '\n', <input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.noComplemento" readonly="" type="text"/>, '\n'], ['\n', <label>Bairro</label>, '\n', <input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.bairro" readonly="" type="text"/>, '\n'], ['\n', <label>Município</label>, '\n', <input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.municipio + ' - ' + estabelecimento.noMunicipio" readonly="" type="text" value=" - "/>, '\n'], ['\n', <label>UF</label>, '\n', <input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.uf" readonly="" type="text"/>, '\n'], ['\n', <label>CEP</label>, '\n', <input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.cep!=null?(estabelecimento.cep.substring(0, 5) + '-' + estabelecimento.cep.substring(5, 8)): '---'" readonly="" type="text" ui-mask="99999-999" value="---"/>, '\n'], ['\n', <label>Telefone</label>, '\n', <input class="form-control input-sm" id="tel" ng-value="formatarTelefone(estabelecimento.nuTelefone)" readonly="" type="text" value="--"/>, '\n', ' \t\t\t\t\t\t<input class="form-control input-sm" id="cnpj" type="text" ng-value=\t\t\t\t\t\t\n\t\t\t\t\t\t  "(estabelecimento.nuTelefone != null && estabelecimento.nuTelefone.length == 10) ? \'(\' + estabelecimento.nuTelefone.substring(0,2) + \')\' + estabelecimento.nuTelefone.substring(2,6) 
++ \'-\' + estabelecimento.nuTelefone.substring(6,10) : \n\t\t\t\t\t\t  (estabelecimento.nuTelefone != null && estabelecimento.nuTelefone.length == 11) ? \'(\' + estabelecimento.nuTelefone.substring(0,2) + \')\' + estabelecimento.nuTelefone.substring(2,7) + \'-\' + estabelecimento.nuTelefone.substring(7,11) :\n\t\t\t\t\t\t  (estabelecimento.nuTelefone != null) ? estabelecimento.nuTelefone : \'---\'" \n\t\t\t\t\t\treadonly>\t\t\t\t\t\t\t\t\t\t\n ', ' '], ['\n', <label>Dependência</label>, '\n', <input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.nvDependencia == '1' ? 'INDIVIDUAL' : estabelecimento.nvDependencia == '3' ? 'MANTIDA': ''" readonly="" type="text" value=""/>, '\n'], ['\n', <label>Regional de Saúde</label>, '\n', <input class="form-control input-sm" id="regSaude" ng-value="estabelecimento.regionalSaude" readonly="" type="text"/>, '\n'], ['\n', <label>Tipo de Estabelecimento</label>, '\n', <input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.dsTpUnidade" readonly="" type="text"/>, '\n'], ['\n', <label>Subtipo de Estabelecimento</label>, '\n', <input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.dsStpUnidade" readonly="" type="text"/>, '\n'], ['\n', <label>Gestão</label>, '\n', <input class="form-control input-sm" id="cnpj" ng-value="estabelecimento.tpGestao == 'M' ? 'MUNICIPAL' : estabelecimento.tpGestao == 'E' ? 'ESTADUAL' :  estabelecimento.tpGestao == 'D' ? 'DUPLA' : '' " readonly="" type="text" value=""/>, '\n'], ['\n', <label>Diretor Clínico/Gerente/Administrador</label>, '\n', <input class="form-control input-sm" id="diretor" ng-value="estabelecimento.diretor.nome" readonly="" type="text"/>, '\n'], ['\n', <label>Cadastrado em</label>, '\n', <input class="form-control input-sm" ng-value="estabelecimento.dtAtualizacaoOrigem" readonly="" type="text"/>, '\n'], ['\n', <label>Atualização na Base Local</label>, '\n', <input class="form-control input-sm" ng-value="estabelecimento.dtAtualizacao" readonly="" type="text"/>, '\n'], ['\n', <label>Última atualização Nacional</label>, 
+'\n', <input class="form-control input-sm" ng-value="estabelecimento.dtCarga" readonly="" type="text"/>, '\n'], ['\n', <label>Horário de funcionamento</label>, '\n', <input class="form-control input-sm" id="cnpj" readonly="" type="text" value="Não informado"/>, '\n']]

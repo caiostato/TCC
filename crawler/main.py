@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.service import Service
 from chromedriver_py import binary_path
 import time
 from bs4 import BeautifulSoup
@@ -42,7 +43,7 @@ def ficha(index):
         #Separa os campos do HTML em lista
         data = soup.find_all('div', attrs={"class": "form-group"})
 
-        # data_list = []
+        data_list = []
 
         #Clica botao ambulatorial
         item = web.find_element_by_xpath("/html/body/div[2]/main/div/div[3]/div[1]/aside/section/ul/li[3]/a")
@@ -62,18 +63,23 @@ def ficha(index):
         
         item2 = web.find_element_by_xpath("//*[@id='estabContent']/div/section/div[3]/div/div[2]/div[2]")
 
-        result = item2.get_attribute('innerHTML')
-        soup = BeautifulSoup(result, 'html.parser')
-        item2 = soup.find('text')
-        print(item2)
 
-        #Printa os values da lista 
-        for each in data:   
-            value = each.input['value']
+        # sem utilidade
+        # result = item2.get_attribute('innerHTML')
+        # soup = BeautifulSoup(result, 'html.parser')
+        # item2 = soup.find('text')
+        # print("ITEM2 DEBUG")
+        # print(item2)
+
+        # Printa os values da lista 
+        for each in data:  
+            value = BeautifulSoup(each,'html.parser')
+            # value = value.input["value"]
             print(value)
-    #     data_list.append(value)
+            data_list.append(value)
 
-        # print(data_list)
+        print("datalist input")
+        print(data_list)
 
         # output_data = {}
         # output_data["unidade"] = []
@@ -134,10 +140,12 @@ def fill():
     sendBtn.click()
 
 try:
-    web = webdriver.Chrome(executable_path=binary_path)
+    s = Service(binary_path)
+    web = webdriver.Chrome(service=s)
     web.get('http://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp')
 except:
-    web.quit()
+    # web.quit()
+    pass
     
 time.sleep(2)
 
@@ -148,7 +156,8 @@ try:
         EC.presence_of_element_located((By.XPATH,"/html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody"))
     )
 except:
-    web.quit()
+    # web.quit()
+    pass
 
 page=1
 index=1
