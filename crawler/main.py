@@ -1,3 +1,4 @@
+from unittest import defaultTestLoader
 from bs4.element import PreformattedString, ProcessingInstruction, SoupStrainer
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -44,6 +45,7 @@ def ficha(index):
         data = soup.find_all('div', attrs={"class": "form-group"})
 
         data_list = []
+        dataServicos = []
 
         #Clica botao ambulatorial
         item = web.find_element_by_xpath("/html/body/div[2]/main/div/div[3]/div[1]/aside/section/ul/li[3]/a")
@@ -60,26 +62,57 @@ def ficha(index):
         WebDriverWait(web,5).until(
             EC.presence_of_element_located((By.XPATH,"//*[@id='estabContent']/div/section/div[3]/div/div[2]/div[2]"))
         )
-        
         item2 = web.find_element_by_xpath("//*[@id='estabContent']/div/section/div[3]/div/div[2]/div[2]")
 
+        result = item2.get_attribute('innerHTML')
+        soup = BeautifulSoup(result, 'html.parser')
+        item2 = soup.text
 
-        # sem utilidade
-        # result = item2.get_attribute('innerHTML')
-        # soup = BeautifulSoup(result, 'html.parser')
-        # item2 = soup.find('text')
-        # print("ITEM2 DEBUG")
-        # print(item2)
+        if item2.__contains__("Nenhum resultado para a consulta realizada."):
+            dataServicos.append("False")
+        else:
+            dataServicos.append("True")
 
-        # Printa os values da lista 
+        #Clica em quimioRadio
+        especialidade = web.find_element_by_xpath("//section[@class='sidebar']/ul/li[3]/ul/li[2]/a")
+        especialidade.click()
+
+        WebDriverWait(web,5).until(
+            EC.presence_of_element_located((By.XPATH,"//*[@id='estabContent']/div/section/div[3]/div/div[2]/div[2]"))
+        )
+        item2 = web.find_element_by_xpath("//*[@id='estabContent']/div/section/div[3]/div/div[2]/div[2]")
+
+        result = item2.get_attribute('innerHTML')
+        soup = BeautifulSoup(result, 'html.parser')
+        item2 = soup.text
+
+        if item2.__contains__("Nenhum resultado para a consulta realizada."):
+            dataServicos.append("False")
+        else:
+            dataServicos.append("True")
+
+        #Clica em hemoterapia
+        especialidade = web.find_element_by_xpath("//section[@class='sidebar']/ul/li[3]/ul/li[3]/a")
+        especialidade.click()
+
+        WebDriverWait(web,5).until(
+            EC.presence_of_element_located((By.XPATH,"//*[@id='estabContent']/div/section/div[3]/div/div[2]/div[2]"))
+        )
+        item2 = web.find_element_by_xpath("//*[@id='estabContent']/div/section/div[3]/div/div[2]/div[2]")
+
+        result = item2.get_attribute('innerHTML')
+        soup = BeautifulSoup(result, 'html.parser')
+        item2 = soup.text
+
+        if item2.__contains__("Nenhum resultado para a consulta realizada."):
+            dataServicos.append("False")
+        else:
+            dataServicos.append("True")
+
+        # Converte os dados 
         for each in data:  
-            value = BeautifulSoup(each,'html.parser')
-            # value = value.input["value"]
-            print(value)
+            value = each.input["value"]
             data_list.append(value)
-
-        print("datalist input")
-        print(data_list)
 
         # output_data = {}
         # output_data["unidade"] = []
@@ -95,22 +128,6 @@ def ficha(index):
 
         # with open('json/unidades.json', 'w') as outfile:
         #     json.dump(output_data, outfile)
-        
-        # btnAmbulatorial = web.find_element_by_xpath('//*[@id="estabContent"]/aside/section/ul/li[3]/a')
-        # btnAmbulatorial.click()
-
-        # dataServicos = []
-        
-        # special = web.find_element_by_xpath('//*[@id="estabContent"]/aside/section/ul/li[3]/ul/li[2]/a')
-        # print(special.text)
-
-        # special = web.find_element_by_xpath('//*[@id="estabContent"]/aside/section/ul/li[3]/ul/li[3]/a')
-        # print(special.text)
-        # special.click()
-
-        # item = web.find_element_by_xpath('//*[@id="estabContent"]/div/section/div[1]/div[2]/div[2]/form/div[1]/div[1]/input')
-        # print(item.get_attribute('value'))
-        
 
 def fill():
     atendeSUSBtn = web.find_element_by_xpath('//*[@id="inlineRadio2"]')
@@ -119,6 +136,10 @@ def fill():
     estadoR = 'SAO PAULO'
     estadoBtn = web.find_element_by_xpath('/html/body/div[2]/main/div/div[2]/div/form[1]/div[2]/div[1]/div/select')
     estadoBtn.send_keys(estadoR)
+
+    WebDriverWait(web,2).until(
+        EC.presence_of_element_located((By.XPATH,"/html/body/div[2]/main/div/div[2]/div/form[1]/div[2]/div[2]/div/select"))
+    )
 
     municipioR = 'CAMPINAS'
     municipioBtn = web.find_element_by_xpath('/html/body/div[2]/main/div/div[2]/div/form[1]/div[2]/div[2]/div/select')

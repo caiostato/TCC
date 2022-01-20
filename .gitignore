@@ -1,2 +1,4 @@
 # dependencies
 /app/node_modules
+.test.py
+crawler/modules/__pycache__/info.cpython-39.pyc
