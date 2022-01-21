@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from unittest import defaultTestLoader
 from bs4.element import PreformattedString, ProcessingInstruction, SoupStrainer
 from selenium import webdriver
@@ -129,6 +130,9 @@ def ficha(index):
         # with open('json/unidades.json', 'w') as outfile:
         #     json.dump(output_data, outfile)
 
+        
+        web.switch_to.window(web.window_handles[0])
+
 def fill():
     atendeSUSBtn = web.find_element_by_xpath('//*[@id="inlineRadio2"]')
     atendeSUSBtn.click()
@@ -180,9 +184,15 @@ except:
     # web.quit()
     pass
 
-page=1
-index=1
 
-for index in range(10):
-    index = index + 1
-    ficha(index)
+for page in range(7):
+    page = page + 1
+
+    if page < 7:
+        for index in range(10):
+            index = index + 1
+            ficha(index)
+    else:
+        for index in range(7):
+            index = index + 1
+            ficha(index)

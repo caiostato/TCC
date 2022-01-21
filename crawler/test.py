@@ -1,3 +1,4 @@
+from itertools import count
 from unittest import defaultTestLoader
 from bs4.element import PreformattedString, ProcessingInstruction, SoupStrainer
 from selenium import webdriver
@@ -29,6 +30,9 @@ def ficha(index):
         web.execute_script("window.open('about:blank','secondtab');")
         web.switch_to.window("secondtab")
         web.get(elem)
+
+        web.switch_to.window(web.window_handles[0])
+
 
 def fill():
     atendeSUSBtn = web.find_element_by_xpath('//*[@id="inlineRadio2"]')
@@ -81,9 +85,14 @@ except:
     # web.quit()
     pass
 
-page=1
-index=1
+for page in range(7):
+    page = page + 1
 
-for index in range(10):
-    index = index + 1
-    ficha(index)
+    if page < 7:
+        for index in range(10):
+            index = index + 1
+            ficha(index)
+    else:
+        for index in range(7):
+            index = index + 1
+            ficha(index)
