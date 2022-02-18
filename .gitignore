@@ -8,3 +8,4 @@ crawler/modules/firebaseSDK.json
 crawler/modules/firebase/.env
 crawler/modules/firebase/firebaseSDK.json
 .env
+/app/yarn.lock
