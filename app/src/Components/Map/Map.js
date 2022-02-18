@@ -1,22 +1,14 @@
 import './Map.css';
 import { GoogleMap, withScriptjs, withGoogleMap} from 'react-google-maps';
+require('dotenv').config({ path:'../../../../.env'})
 
-const apiKEY = 'AIzaSyBjmM6PmQSsm4-chVVucUD4QLkt-g5QGWE';
-
-let lat,lng;
-
-if(navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(pos => {
-        lat =pos.coords.latitude;
-        lng=pos.coords.longitude;
-    })
-}
+const apiKEY = process.env.API_KEY
 
 function Map() {
     return (
         <GoogleMap 
             defaultZoom={10} 
-            defaultCenter={{lat: lat, lng: lng}} //criar script para pegar lat e lng do user.
+            defaultCenter={{lat: -23.550520, lng: -46.633308}} //criar script para pegar lat e lng do user.
         />
     );
 }
@@ -26,7 +18,7 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 export default function Mapping(){
     return (
         <div className="map">
-            <WrappedMap 
+            <WrappedMap
                 googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${apiKEY}`}
                 loadingElement={<div style={{ height: `100%` }} />}
                 containerElement={<div style={{ height: `100%` }} />}

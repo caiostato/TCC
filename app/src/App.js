@@ -1,9 +1,14 @@
-import Mapping from './Components/Map';
+import Mapping from './Components/Map/Map';
+import Menu from './Components/Menu/Menu'
+import './App.css'
 
 function App() {
   return (
-    Mapping()
-  )
+    <div>
+    <Menu classname='menu'></Menu>
+    <Mapping classname='map'></Mapping>
+    </div>
+  );
 }
 
 export default App;
