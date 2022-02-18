@@ -4,3 +4,7 @@ crawler/modules/__pycache__/info.cpython-39.pyc
 crawler/test2.py
 crawler/test.py
 .vscode/launch.json
+crawler/modules/firebaseSDK.json
+crawler/modules/firebase/.env
+crawler/modules/firebase/firebaseSDK.json
+.env
