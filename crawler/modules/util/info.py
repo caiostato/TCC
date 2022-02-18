@@ -3,6 +3,7 @@ from unittest import defaultTestLoader
 from bs4.element import PreformattedString, ProcessingInstruction, SoupStrainer
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
@@ -11,6 +12,7 @@ import time
 from bs4 import BeautifulSoup as bsoup
 from lxml import html
 import json
+from modules.firebase.firebase import pushDB
 
 def getInfo(web, index):
     """A cada call dessa funcao, uma ficha vai ser analisada e anexada ao JSON"""
@@ -44,6 +46,57 @@ def getInfo(web, index):
 
         data_list = []
         dataServicos = []
+        dataEspecializacoes = []
+
+        #Clica botao conjunto
+        item = web.find_element_by_xpath("/html/body/div[2]/main/div/div[3]/div[1]/aside/section/ul/li[2]/a")
+        item.click()
+
+        WebDriverWait(web,2).until(
+            EC.presence_of_element_located((By.XPATH,"//section[@class='sidebar']/ul/li[2]/ul/li[1]/a"))
+        )
+
+        #Clica em inf gerais
+        especialidade = web.find_element_by_xpath("//section[@class='sidebar']/ul/li[2]/ul/li[1]/a")
+        especialidade.click()
+
+        WebDriverWait(web,2).until(
+            EC.presence_of_element_located((By.XPATH,"//*[@id='estabContent']/div/section/div[3]/div/div[2]/div[1]/div[3]/table"))
+        )
+
+
+
+
+        for y in range(4):
+            
+            table = web.find_element_by_xpath('//*[@id="estabContent"]/div/section/div[3]/div/div[2]/div[1]/div[3]/table/tbody')
+            table = table.get_attribute('innerHTML')
+            soup = bsoup(table, 'html.parser')
+            array_td = soup.find_all('tr')
+            len_tr = len(array_td)
+
+            for x in range(len_tr):
+                try:
+                    servicos = web.find_element_by_xpath("//*[@id='estabContent']/div/section/div[3]/div/div[2]/div[1]/div[3]/table/tbody/tr["+str(x+1)+"]/td[2]")
+                    servicos = servicos.get_attribute('innerHTML')
+                except NoSuchElementException:
+                    break
+                else:
+                    servicos = web.find_element_by_xpath("//*[@id='estabContent']/div/section/div[3]/div/div[2]/div[1]/div[3]/table/tbody/tr["+str(x+1)+"]/td[2]")
+                    servicos = servicos.get_attribute('innerHTML')
+                    soup = bsoup(servicos, 'html.parser')
+                    servicos = soup.value
+                    dataEspecializacoes.append(servicos)
+                
+            try:
+                nextBtn = web.find_element_by_xpath('//*[@id="estabContent"]/div/section/div[3]/div/div[2]/div[1]/div[3]/div/div/div/ul/li[6]/a')
+            except NoSuchElementException:
+                break
+            else:
+                nextBtn.click()
+
+        #Tratamento de dados servicos 
+
 
         #Clica botao ambulatorial
         item = web.find_element_by_xpath("/html/body/div[2]/main/div/div[3]/div[1]/aside/section/ul/li[3]/a")
@@ -109,28 +162,15 @@ def getInfo(web, index):
 
         # Converte os dados 
         for each in data:
-                value = each.input["value"]
-                data_list.append(value)
-                print(data_list)
+                subString = 'type="text" value="'
 
-        # value = data.findAll("input")
-        # print(value)
+                if subString in str(each):
+                    value = each.input["value"]
+                    data_list.append(value)
 
-
-        # output_data = {}
-        # output_data["unidade"] = []
-        # output_data["unidade"].append({
-        #         "id": cont,
-        #         "nome": data_list[0],
-        #         "cep": data_list[10],
-        #         "logradouro": data_list[5]+', '+data_list[7]+', '+data_list[8],
-        #         "numero": data_list[6],
-        #         "telefone": data_list[11],
-        #         "tipoEstabelecimento": data_list[14]
-        # })
-
-        # with open('json/unidades.json', 'w') as outfile:
-        #     json.dump(output_data, outfile)
+        print(dataEspecializacoes)
+        # print(data_list)
+        # pushDB(data_list)
 
         web.switch_to.window(web.window_handles[0])
 

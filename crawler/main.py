@@ -1,41 +1,50 @@
 from asyncio.windows_events import NULL
+from lxml import html
+from pydoc import pager
 from unittest import defaultTestLoader
+#BeautifulSoup IMPORTS
 from bs4.element import PreformattedString, ProcessingInstruction, SoupStrainer
-from selenium import webdriver
+from bs4 import BeautifulSoup
+#SELENIUM IMPORTS
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from chromedriver_py import binary_path
+from selenium.common.exceptions import TimeoutException
+#PYTHON IMPORTS
 import time
-from bs4 import BeautifulSoup
 import warnings
-from lxml import html
-import json
-from modules.info import getInfo
-from modules.fill import fill
+#MODULES IMPORTS
+from modules.util.info import getInfo
+from modules.util.fill import fill
+from modules.factories.driver_factory import driverFactory
 
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
-try:
-    s = Service(binary_path)
-    web = webdriver.Chrome(service=s)
-    web.get('http://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp')
-except:
-    # web.quit()
-    pass
-    
-time.sleep(2)
+result = False
 
-fill(web)
+web = driverFactory()
+web.set_page_load_timeout(10)
+
+while result == False:
+    try:
+        print("get")
+        web.get('http://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp')
+        WebDriverWait(web,2).until(
+        EC.presence_of_element_located((By.XPATH,"/html/body/div[2]/main/div/div[2]/div/form[1]"))
+        )
+    except TimeoutException:
+        print("TimeoutException")
+        web.close()
+    else:
+        print("ELSE")
+        result = True
+        fill(web)
 
 try:
     WebDriverWait(web,2).until(
         EC.presence_of_element_located((By.XPATH,"/html/body/div[2]/main/div/div[2]/div/div[3]/table/tbody"))
     )
 except:
-    # web.quit()
     pass
 
 for page in range(7):
@@ -49,3 +58,6 @@ for page in range(7):
         for index in range(7):
             index = index + 1
             getInfo(web,index)
+
+    pageBtn = web.find_element_by_xpath('/html/body/div[2]/main/div/div[2]/div/div[3]/div/div/div/ul/li['+str(page+1)+']/a')
+    pageBtn.click()
