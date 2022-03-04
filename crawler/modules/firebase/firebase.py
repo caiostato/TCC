@@ -4,8 +4,8 @@ from firebase_admin import db
 import os
 from dotenv import load_dotenv, find_dotenv
 
-load_dotenv(find_dotenv())
-database_url = os.environ.get('database_url')
+load_dotenv(find_dotenv("../../../.env"))
+database_url = os.environ.get('DATABASE_URL')
 
 cred = credentials.Certificate("crawler/modules/firebase/firebaseSDK.json")
 firebase_admin.initialize_app(cred,{
@@ -14,7 +14,7 @@ firebase_admin.initialize_app(cred,{
 
 ref = db.reference('Unidade')
 
-def pushDB(data_list):
+def pushDB(data_list,dataServicos,dataEspecializacoes,coordsArray):
         ref.push({
                 "nome": data_list[0],
                 "cep": '',
@@ -23,7 +23,13 @@ def pushDB(data_list):
                 "bairro": data_list[5],
                 "telefone": data_list[9],
                 "tipoEstabelecimento": data_list[12],
-                "mantenedor": data_list[14]
+                "mantenedor": data_list[14],
+                "dialise":dataServicos[0],
+                "quimioRadio":dataServicos[1],
+                "hemoterapia":dataServicos[2],
+                "latitude":coordsArray[0],
+                "latitude":coordsArray[1],
+                
         })
 
         #colocar os servicos

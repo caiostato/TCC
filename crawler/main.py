@@ -47,17 +47,19 @@ try:
 except:
     pass
 
-for page in range(7):
-    page = page + 1
+# for page in range(7):
+#     page = page + 1
 
-    if page < 7:
-        for index in range(10):
-            index = index + 1
-            getInfo(web,index)
-    else:
-        for index in range(7):
-            index = index + 1
-            getInfo(web,index)
+#     if page < 7:
+#         for index in range(10):
+#             index = index + 1
+#             getInfo(web,index)
+#     else:
+#         for index in range(7):
+#             index = index + 1
+#             getInfo(web,index)
 
-    pageBtn = web.find_element_by_xpath('/html/body/div[2]/main/div/div[2]/div/div[3]/div/div/div/ul/li['+str(page+1)+']/a')
-    pageBtn.click()
+#     pageBtn = web.find_element_by_xpath('/html/body/div[2]/main/div/div[2]/div/div[3]/div/div/div/ul/li['+str(page+1)+']/a')
+#     pageBtn.click()
+
+getInfo(web,1)

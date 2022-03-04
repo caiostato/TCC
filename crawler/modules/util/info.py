@@ -6,13 +6,11 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.service import Service
-from chromedriver_py import binary_path
-import time
 from bs4 import BeautifulSoup as bsoup
-from lxml import html
-import json
+
 from modules.firebase.firebase import pushDB
+from modules.util.coords_generator import getCoords
+
 
 def getInfo(web, index):
     """A cada call dessa funcao, uma ficha vai ser analisada e anexada ao JSON"""
@@ -64,9 +62,6 @@ def getInfo(web, index):
             EC.presence_of_element_located((By.XPATH,"//*[@id='estabContent']/div/section/div[3]/div/div[2]/div[1]/div[3]/table"))
         )
 
-
-
-
         for y in range(4):
             
             table = web.find_element_by_xpath('//*[@id="estabContent"]/div/section/div[3]/div/div[2]/div[1]/div[3]/table/tbody')
@@ -85,7 +80,7 @@ def getInfo(web, index):
                     servicos = web.find_element_by_xpath("//*[@id='estabContent']/div/section/div[3]/div/div[2]/div[1]/div[3]/table/tbody/tr["+str(x+1)+"]/td[2]")
                     servicos = servicos.get_attribute('innerHTML')
                     soup = bsoup(servicos, 'html.parser')
-                    servicos = soup.value
+                    servicos = soup.text
                     dataEspecializacoes.append(servicos)
                 
             try:
@@ -96,7 +91,16 @@ def getInfo(web, index):
                 nextBtn.click()
 
         #Tratamento de dados servicos 
+        arrayAUX = dataEspecializacoes
+        dataEspecializacoes = []
 
+        for each in arrayAUX:
+            p = str(each)
+            aux = p.replace('\n','')
+            aux = aux.replace('\t','')
+            aux = aux.lower().title()
+            aux = aux.strip()
+            dataEspecializacoes.append(aux)
 
         #Clica botao ambulatorial
         item = web.find_element_by_xpath("/html/body/div[2]/main/div/div[3]/div[1]/aside/section/ul/li[3]/a")
@@ -136,7 +140,7 @@ def getInfo(web, index):
         result = item2.get_attribute('innerHTML')
         soup = bsoup(result, 'html.parser')
         item2 = soup.text
-
+        
         if item2.__contains__("Nenhum resultado para a consulta realizada."):
             dataServicos.append("False")
         else:
@@ -168,9 +172,13 @@ def getInfo(web, index):
                     value = each.input["value"]
                     data_list.append(value)
 
-        print(dataEspecializacoes)
-        # print(data_list)
-        # pushDB(data_list)
+        #converter endereco para coords
+        auxString = data_list[3] +", "+data_list[4] +", "+data_list[5] +", Campinas, Brazil"
+        coordsArray = []
+        getCoords(auxString)
+
+        # print(data_list,dataServicos)
+        pushDB(data_list,dataServicos,dataEspecializacoes,coordsArray)
 
         web.switch_to.window(web.window_handles[0])
 
