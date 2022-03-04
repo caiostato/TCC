@@ -34,3 +34,7 @@
     border-radius: 0.4rem;
     background-color: #E5E4E2;
 }
+
+.inside input::placeholder{
+    color: #818589;
+}

@@ -1,13 +1,11 @@
-// let posicao;
+function getCords(){
+    let posicao
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(pos => {
+            posicao = pos
+            return posicao;
+        })
+    }
+}
 
-// function setCords(){
-//     if(navigator.geolocation){
-//         navigator.geolocation.getCurrentPosition(pos => {
-//             posicao = pos;
-//         })
-//     }
-// }
-
-// function getCords(){
-//     console.log(posicao)
-// }
+export default getCords
