@@ -7,8 +7,8 @@ from chromedriver_py import binary_path
 def driverFactory():
     try:
         s = Service(binary_path)
-        web = webdriver.Chrome(service=s)
-    except error:
-        print("Driver Factory Error: "+error)
+        web = webdriver.Chrome(s)
+    except:
+        print("Driver Factory Error: ")
     else:
         return web
