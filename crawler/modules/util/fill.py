@@ -1,13 +1,8 @@
-from asyncio.windows_events import NULL
-from unittest import defaultTestLoader
-from bs4.element import PreformattedString, ProcessingInstruction, SoupStrainer
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.service import Service
 
-def fill(web):
+def fill_keys(web):
     atendeSUSBtn = web.find_element_by_xpath('//*[@id="inlineRadio2"]')
     atendeSUSBtn.click()
 
