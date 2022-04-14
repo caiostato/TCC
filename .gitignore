@@ -1,11 +1,13 @@
-# dependencies
-/app/node_modules
-crawler/modules/__pycache__/info.cpython-39.pyc
-crawler/test2.py
-crawler/test.py
-.vscode/launch.json
-crawler/modules/firebaseSDK.json
-crawler/modules/firebase/.env
-crawler/modules/firebase/firebaseSDK.json
+
+#testing
+python/test.py
+
+#ENV VARIABLES
 .env
-/app/yarn.lock
+python/modules/firebase/firebaseSDK.json
+
+#pycaches
+python/modules/__pycache__
+python/modules/firebase/__pycache__
+python/modules/classes/__pycache__
+python/modules/util/__pycache__
