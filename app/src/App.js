@@ -1,23 +1,20 @@
-import Map from './Components/Map/Map';
-import Menu from './Components/Menu/Menu'
-import './App.css'
-import React, { Component }  from 'react';
+import { React } from 'react'
 
-// import {useState,React} from 'react';
+import Routing from './routes/Routes';
+import database from './config/dbServer';
+
+import './App.css';
+import { onValue,ref } from 'firebase/database';
 
 function App() {
 
-  // const [map, setMap] = useState(null)
+  const db = ref(database,'Unidade')
+  onValue(db, (snapshot) => {
+    console.log(snapshot)
+  })
 
-  // const [markers, setMarkers] = useState(0)
-  
   return (
-    // <div>
-    // <Menu classname='menu'></Menu>
-    // <Map></Map>
-  
-    // </div>
-    <Map></Map>
+    <Routing></Routing>
   );
 }
 
