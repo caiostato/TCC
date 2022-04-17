@@ -1,6 +1,6 @@
-import { React,useState } from 'react'
+import { React } from 'react'
 
-import Map from '../components/map/Map'
+import Map from '../components/map/map'
 
 const MapController = () => {
 

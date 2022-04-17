@@ -1,9 +1,10 @@
 import { React } from 'react'
 
-import Routing from './routes/Routes';
-import database from './config/dbServer';
+import Routing from './routes/routes';
+import database from './config/dbserver';
 
-import './App.css';
+
+import './app.css';
 import { onValue,ref } from 'firebase/database';
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
   })
 
   return (
-    <Routing></Routing>
+      <Routing/>
   );
 }
 

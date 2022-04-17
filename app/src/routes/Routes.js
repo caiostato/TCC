@@ -1,14 +1,18 @@
 import React from "react";
 import { Route,Routes, BrowserRouter } from "react-router-dom";
 
-import MapController from "../controllers/Map-Controller";
+import MapController from '../controllers/map-controller';
+import MenuController from "../controllers/menu-controller";
 
 const Routing = () => {
     return(
         <BrowserRouter>
         <Routes>
             <Route path="/" exact element={
-                <MapController/>
+                <div>
+                    <MenuController/>
+                    <MapController/>
+                </div>
             }/>
         
         </Routes>    
