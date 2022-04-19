@@ -1,0 +1,367 @@
+{
+  "Unidade": {
+    "1": {
+      "atualizacao na base local": "23/08/2021",
+      "bairro": "JD AFIFE",
+      "cadastrado em": "25/07/2003",
+      "cnes": "2022664",
+      "complemento": "DISTRITO B GERALDO",
+      "dependencia": "MANTIDA",
+      "diretor clinico": {
+        "gerente": {
+          "administrador": "LUIZ GONCALVES DE ALMEIDA FILHO"
+        }
+      },
+      "especializacoes": [
+        null,
+        "Atencao Primaria",
+        "Imunizacao",
+        "Regulacao Do Acesso A Acoes E Servicos De Saude",
+        "Servico De Atencao A Saude Do Trabalhador",
+        "Servico De Atencao A Saude Reprodutiva",
+        "Servico De Atencao Ao Paciente Com Tuberculose",
+        "Servico De Atencao Ao Pre-Natal, Parto E Nascimento",
+        "Servico De Atencao Domiciliar",
+        "Servico De Atencao Em Saude Bucal",
+        "Servico De Atencao Integral Em Hanseniase",
+        "Servico De Atencao Psicossocial",
+        "Servico De Controle De Tabagismo",
+        "Servico De Diagnostico Por Metodos Graficos Dinamicos",
+        "Servico De Praticas Integrativas E Complementares",
+        "Servico De Vigilancia Em Saude",
+        "Servico Posto De Coleta De Materiais  Biologicos"
+      ],
+      "gestao": "MUNICIPAL",
+      "logradouro": "AV ALBINO JOSE BARBOSA DE OLIVEIRA",
+      "municipio": "350950 - CAMPINAS",
+      "nome": "CENTRO DE SAUDE BARAO GERALDO",
+      "nome empresarial": "PREFEITURA MUNICIPAL DE CAMPINAS",
+      "numero": "893",
+      "regional de saude": "0207",
+      "servicos": {
+        "dialise": false,
+        "hemoterapia": false,
+        "quimioRadio": false
+      },
+      "telefone": "(19)3289-9691",
+      "tipo de estabelecimento": "CENTRO DE SAUDE/UNIDADE BASICA",
+      "uf": "SP",
+      "ultima atualizacao nacional": "03/04/2022"
+    },
+    "2": {
+      "atualizacao na base local": "31/08/2021",
+      "bairro": "VILA BOA VISTA",
+      "cadastrado em": "25/07/2003",
+      "cnes": "2022826",
+      "dependencia": "MANTIDA",
+      "diretor clinico": {
+        "gerente": {
+          "administrador": "BEATRIZ DO CARMO COLOMBO"
+        }
+      },
+      "especializacoes": [
+        null,
+        "Atencao Primaria",
+        "Imunizacao",
+        "Servico De Atencao Ao Paciente Com Tuberculose",
+        "Servico De Atencao Ao Pre-Natal, Parto E Nascimento",
+        "Servico De Atencao Domiciliar"
+      ],
+      "gestao": "MUNICIPAL",
+      "logradouro": "R DAS ACACIAS",
+      "municipio": "350950 - CAMPINAS",
+      "nome": "CENTRO DE SAUDE BOA VISTA",
+      "nome empresarial": "PREFEITURA MUNICIPAL DE CAMPINAS",
+      "numero": "S/N",
+      "regional de saude": "0207",
+      "servicos": {
+        "dialise": false,
+        "hemoterapia": false,
+        "quimioRadio": false
+      },
+      "telefone": "(19)3245-2662",
+      "tipo de estabelecimento": "CENTRO DE SAUDE/UNIDADE BASICA",
+      "uf": "SP",
+      "ultima atualizacao nacional": "01/04/2022"
+    },
+    "3": {
+      "atualizacao na base local": "25/06/2021",
+      "bairro": "CAMPINA GRANDE",
+      "cadastrado em": "11/11/2008",
+      "cnes": "6032141",
+      "dependencia": "MANTIDA",
+      "diretor clinico": {
+        "gerente": {
+          "administrador": "SILVANIA WERTONGE REIS"
+        }
+      },
+      "especializacoes": [
+        null,
+        "Atencao Primaria",
+        "Imunizacao",
+        "Servico De Atencao Ao Paciente Com Tuberculose",
+        "Servico De Atencao Ao Pre-Natal, Parto E Nascimento",
+        "Servico De Atencao Domiciliar"
+      ],
+      "gestao": "MUNICIPAL",
+      "logradouro": "RUA GERALDO JOSE DE ALMEIDA",
+      "municipio": "350950 - CAMPINAS",
+      "nome": "CENTRO DE SAUDE CAMPINA GRANDE",
+      "nome empresarial": "PREFEITURA MUNICIPAL DE CAMPINAS",
+      "numero": "330",
+      "regional de saude": "0207",
+      "servicos": {
+        "dialise": false,
+        "hemoterapia": false,
+        "quimioRadio": false
+      },
+      "telefone": "(19)3221-7358",
+      "tipo de estabelecimento": "CENTRO DE SAUDE/UNIDADE BASICA",
+      "uf": "SP",
+      "ultima atualizacao nacional": "01/04/2022"
+    },
+    "4": {
+      "atualizacao na base local": "22/07/2021",
+      "bairro": "JD CAMPO BELO",
+      "cadastrado em": "17/11/2008",
+      "cnes": "6032605",
+      "dependencia": "MANTIDA",
+      "diretor clinico": {
+        "gerente": {
+          "administrador": "MANOEL RAIMUNDO PEREIRA DE CARVALHO"
+        }
+      },
+      "especializacoes": [
+        null,
+        "Atencao Primaria",
+        "Imunizacao",
+        "Servico De Atencao Ao Paciente Com Tuberculose",
+        "Servico De Atencao Ao Pre-Natal, Parto E Nascimento",
+        "Servico De Atencao Domiciliar"
+      ],
+      "gestao": "MUNICIPAL",
+      "logradouro": "RUA MILTON PEREIRA DE CASTRO",
+      "municipio": "350950 - CAMPINAS",
+      "nome": "CENTRO DE SAUDE CAMPO BELO",
+      "nome empresarial": "PREFEITURA MUNICIPAL DE CAMPINAS",
+      "numero": "255",
+      "regional de saude": "0207",
+      "servicos": {
+        "dialise": false,
+        "hemoterapia": false,
+        "quimioRadio": false
+      },
+      "telefone": "(19)3225-6354",
+      "tipo de estabelecimento": "CENTRO DE SAUDE/UNIDADE BASICA",
+      "uf": "SP",
+      "ultima atualizacao nacional": "01/04/2022"
+    },
+    "5": {
+      "atualizacao na base local": "23/02/2022",
+      "bairro": "CAMPOS ELISEOS",
+      "cadastrado em": "25/07/2003",
+      "cnes": "2022613",
+      "dependencia": "MANTIDA",
+      "diretor clinico": {
+        "gerente": {
+          "administrador": "JANAINA FRANCO"
+        }
+      },
+      "especializacoes": [
+        null,
+        "Atencao Primaria",
+        "Imunizacao",
+        "Servico De Atencao Ao Paciente Com Tuberculose",
+        "Servico De Atencao Ao Pre-Natal, Parto E Nascimento",
+        "Servico De Atencao Domiciliar"
+      ],
+      "gestao": "MUNICIPAL",
+      "logradouro": "AV TANCREDO NEVES",
+      "municipio": "350950 - CAMPINAS",
+      "nome": "CENTRO DE SAUDE CAMPOS ELISEOS TANCREDO NEVES",
+      "nome empresarial": "PREFEITURA MUNICIPAL DE CAMPINAS",
+      "numero": "5101",
+      "regional de saude": "0207",
+      "servicos": {
+        "dialise": false,
+        "hemoterapia": false,
+        "quimioRadio": false
+      },
+      "telefone": "(19)3227-3811",
+      "tipo de estabelecimento": "CENTRO DE SAUDE/UNIDADE BASICA",
+      "uf": "SP",
+      "ultima atualizacao nacional": "01/04/2022"
+    },
+    "6": {
+      "atualizacao na base local": "24/02/2022",
+      "bairro": "CARLOS GOMES",
+      "cadastrado em": "11/11/2008",
+      "cnes": "6028195",
+      "dependencia": "MANTIDA",
+      "diretor clinico": {
+        "gerente": {
+          "administrador": "DINAH MARIA PINHEIRO DE OLIVEIRA FERREIRA"
+        }
+      },
+      "especializacoes": [
+        null,
+        "Atencao Primaria",
+        "Imunizacao",
+        "Servico De Atencao Ao Paciente Com Tuberculose",
+        "Servico De Atencao Ao Pre-Natal, Parto E Nascimento",
+        "Servico De Atencao Domiciliar"
+      ],
+      "gestao": "MUNICIPAL",
+      "logradouro": "R ANTONIO IGNACIO PUPO",
+      "municipio": "350950 - CAMPINAS",
+      "nome": "CENTRO DE SAUDE CARLOS GOMES",
+      "nome empresarial": "PREFEITURA MUNICIPAL DE CAMPINAS",
+      "numero": "S/N",
+      "regional de saude": "0207",
+      "servicos": {
+        "dialise": false,
+        "hemoterapia": false,
+        "quimioRadio": false
+      },
+      "telefone": "(19)3257-0234",
+      "tipo de estabelecimento": "CENTRO DE SAUDE/UNIDADE BASICA",
+      "uf": "SP",
+      "ultima atualizacao nacional": "01/04/2022"
+    },
+    "7": {
+      "atualizacao na base local": "16/11/2021",
+      "bairro": "PQ RESIDENCIAL CARVA",
+      "cadastrado em": "25/07/2003",
+      "cnes": "2023083",
+      "dependencia": "MANTIDA",
+      "diretor clinico": {
+        "gerente": {
+          "administrador": "DANIELLE SATIE KASSADA"
+        }
+      },
+      "especializacoes": [
+        null,
+        "Atencao Primaria",
+        "Imunizacao",
+        "Servico De Atencao Ao Paciente Com Tuberculose",
+        "Servico De Atencao Ao Pre-Natal, Parto E Nascimento",
+        "Servico De Atencao Domiciliar"
+      ],
+      "gestao": "MUNICIPAL",
+      "logradouro": "R CELSO LUGLIO",
+      "municipio": "350950 - CAMPINAS",
+      "nome": "CENTRO DE SAUDE CARVALHO DE MOURA",
+      "nome empresarial": "PREFEITURA MUNICIPAL DE CAMPINAS",
+      "numero": "S/N",
+      "regional de saude": "0207",
+      "servicos": {
+        "dialise": false,
+        "hemoterapia": false,
+        "quimioRadio": false
+      },
+      "telefone": "(19)3229-4401",
+      "tipo de estabelecimento": "CENTRO DE SAUDE/UNIDADE BASICA",
+      "uf": "SP",
+      "ultima atualizacao nacional": "01/04/2022"
+    },
+    "8": {
+      "atualizacao na base local": "23/09/2021",
+      "bairro": "CJ HAB EDIVALDO ANTO",
+      "cadastrado em": "29/06/2006",
+      "cnes": "3950220",
+      "dependencia": "MANTIDA",
+      "diretor clinico": {
+        "gerente": {
+          "administrador": "PRISCILA LORENZI FERNANDES MARQUES LIMA"
+        }
+      },
+      "especializacoes": [
+        null,
+        "Atencao Primaria",
+        "Imunizacao",
+        "Servico De Atencao Ao Paciente Com Tuberculose",
+        "Servico De Atencao Ao Pre-Natal, Parto E Nascimento",
+        "Servico De Atencao Domiciliar"
+      ],
+      "gestao": "MUNICIPAL",
+      "logradouro": "R PREFEITO CELSO DANIEL",
+      "municipio": "350950 - CAMPINAS",
+      "nome": "CENTRO DE SAUDE CASSIO RAPOSO DO AMARAL",
+      "nome empresarial": "PREFEITURA MUNICIPAL DE CAMPINAS",
+      "numero": "600",
+      "regional de saude": "0207",
+      "servicos": {
+        "dialise": false,
+        "hemoterapia": false,
+        "quimioRadio": false
+      },
+      "telefone": "(19)3281-2095",
+      "tipo de estabelecimento": "CENTRO DE SAUDE/UNIDADE BASICA",
+      "uf": "SP",
+      "ultima atualizacao nacional": "01/04/2022"
+    },
+    "10": {
+      "atualizacao na base local": "28/08/2020",
+      "bairro": "CENTRO",
+      "cadastrado em": "25/07/2003",
+      "cnes": "2022729",
+      "dependencia": "MANTIDA",
+      "diretor clinico": {
+        "gerente": {
+          "administrador": "CARLA TREVISAN MANZOLI"
+        }
+      },
+      "especializacoes": [
+        null,
+        "Atencao Primaria",
+        "Imunizacao",
+        "Servico De Atencao Ao Paciente Com Tuberculose",
+        "Servico De Atencao Ao Pre-Natal, Parto E Nascimento",
+        "Servico De Atencao Domiciliar"
+      ],
+      "gestao": "MUNICIPAL",
+      "logradouro": "R PADRE VIEIRA",
+      "municipio": "350950 - CAMPINAS",
+      "nome": "CENTRO DE SAUDE CENTRO",
+      "nome empresarial": "PREFEITURA MUNICIPAL DE CAMPINAS",
+      "numero": "1145",
+      "regional de saude": "0207",
+      "servicos": {
+        "dialise": false,
+        "hemoterapia": false,
+        "quimioRadio": false
+      },
+      "telefone": "(19)3231-9016",
+      "tipo de estabelecimento": "CENTRO DE SAUDE/UNIDADE BASICA",
+      "uf": "SP",
+      "ultima atualizacao nacional": "01/04/2022"
+    },
+    "9": {
+      "atualizacao na base local": "25/11/2021",
+      "bairro": "JD SANTA GENEBRA",
+      "cadastrado em": "16/06/2004",
+      "cnes": "2023199",
+      "dependencia": "MANTIDA",
+      "diretor clinico": {
+        "gerente": {
+          "administrador": "LILIANE CRISTINA FERRAZ GRULI"
+        }
+      },
+      "gestao": "MUNICIPAL",
+      "logradouro": "RUA JOAQUIM MANUEL DE MACEDO",
+      "municipio": "350950 - CAMPINAS",
+      "nome": "CENTRO DE SAUDE COSTA E SILVA",
+      "nome empresarial": "PREFEITURA MUNICIPAL DE CAMPINAS",
+      "numero": "S/N",
+      "regional de saude": "0207",
+      "servicos": {
+        "dialise": false,
+        "quimioRadio": false
+      },
+      "telefone": "(19)3208-4060",
+      "tipo de estabelecimento": "CENTRO DE SAUDE/UNIDADE BASICA",
+      "uf": "SP",
+      "ultima atualizacao nacional": "01/04/2022"
+    }
+  }
+}

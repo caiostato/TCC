@@ -4,7 +4,9 @@ import './menu.css'
 import './header.css'
 import './list.css'
 import './footer.css'
-import iconIFSP from '../../assets/iconifsp.ico'
+
+import iconIFSP from '../../assets/images/iconifsp.ico'
+import iconGithub from '../../assets/images/25231.ico'
 
 const Menu = () => {
 
@@ -19,7 +21,7 @@ const Menu = () => {
                         <div className='text'>
                             Unidade de Saude de Campinas
                         </div>
-                        <div className='divider'/>
+
                     </div>
                 </div>
                 <div className='input'>
@@ -30,6 +32,9 @@ const Menu = () => {
                 </div>
             </div>
             <div className='footer'>
+                <div className='divider'>
+                    <div className='separator' />
+                </div>
                 {/* <div className='divider'/> */}
                     <div className='rede'>
                         <div className='font-type'>
@@ -37,14 +42,21 @@ const Menu = () => {
                                 Redes Sociais
                             </div>
                         </div>
-                        <div className='list-rede'>
-                            <div>
-                                <a>
-
-                                <img className='ui-image' src={iconIFSP} alt='logo ifsp'/>
+                        <ul>
+                            <li >
+                                {/* arrumar link */}
+                                <a href='https://github.com/caiostato/TCC'>
+                                    <img className='ui-image' src={iconGithub} alt='logo ifsp'/>
+                                </a> 
+                            </li>
+                            <li className='list-rede-item'>
+                                {/* arrumar link */}
+                                <a href='https://www.youtube.com/'>
+                                    <img className='ui-image' src={iconIFSP} alt='logo ifsp'/> ssss
                                 </a>
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
+
 
                     </div>
             </div>
