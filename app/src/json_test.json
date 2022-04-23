@@ -1,11 +1,15 @@
 {
-  "Unidade": {
-    "1": {
+  "Unidade": [
+    {
       "atualizacao na base local": "23/08/2021",
       "bairro": "JD AFIFE",
       "cadastrado em": "25/07/2003",
       "cnes": "2022664",
       "complemento": "DISTRITO B GERALDO",
+      "coordenadas": {
+        "lat": -22.819350,
+        "lng":-47.081120
+      },
       "dependencia": "MANTIDA",
       "diretor clinico": {
         "gerente": {
@@ -48,11 +52,15 @@
       "uf": "SP",
       "ultima atualizacao nacional": "03/04/2022"
     },
-    "2": {
+    {
       "atualizacao na base local": "31/08/2021",
       "bairro": "VILA BOA VISTA",
       "cadastrado em": "25/07/2003",
       "cnes": "2022826",
+      "coordenadas": {
+        "lat": -22.891870,
+        "lng":-47.123490
+      },
       "dependencia": "MANTIDA",
       "diretor clinico": {
         "gerente": {
@@ -84,11 +92,15 @@
       "uf": "SP",
       "ultima atualizacao nacional": "01/04/2022"
     },
-    "3": {
+    {
       "atualizacao na base local": "25/06/2021",
       "bairro": "CAMPINA GRANDE",
       "cadastrado em": "11/11/2008",
       "cnes": "6032141",
+      "coordenadas": {
+        "lat": -22.960791,
+        "lng":-47.217239
+      },
       "dependencia": "MANTIDA",
       "diretor clinico": {
         "gerente": {
@@ -120,11 +132,15 @@
       "uf": "SP",
       "ultima atualizacao nacional": "01/04/2022"
     },
-    "4": {
+    {
       "atualizacao na base local": "22/07/2021",
       "bairro": "JD CAMPO BELO",
       "cadastrado em": "17/11/2008",
       "cnes": "6032605",
+      "coordenadas": {
+        "lat": -23.028270,
+        "lng":-47.114770
+      },
       "dependencia": "MANTIDA",
       "diretor clinico": {
         "gerente": {
@@ -156,11 +172,15 @@
       "uf": "SP",
       "ultima atualizacao nacional": "01/04/2022"
     },
-    "5": {
+    {
       "atualizacao na base local": "23/02/2022",
       "bairro": "CAMPOS ELISEOS",
       "cadastrado em": "25/07/2003",
       "cnes": "2022613",
+      "coordenadas": {
+        "lat": -23.185500,
+        "lng":-45.796730
+      },
       "dependencia": "MANTIDA",
       "diretor clinico": {
         "gerente": {
@@ -192,11 +212,15 @@
       "uf": "SP",
       "ultima atualizacao nacional": "01/04/2022"
     },
-    "6": {
+    {
       "atualizacao na base local": "24/02/2022",
       "bairro": "CARLOS GOMES",
       "cadastrado em": "11/11/2008",
       "cnes": "6028195",
+      "coordenadas": {
+        "lat": -22.766320,
+        "lng":-46.949560
+      },
       "dependencia": "MANTIDA",
       "diretor clinico": {
         "gerente": {
@@ -228,11 +252,15 @@
       "uf": "SP",
       "ultima atualizacao nacional": "01/04/2022"
     },
-    "7": {
+    {
       "atualizacao na base local": "16/11/2021",
       "bairro": "PQ RESIDENCIAL CARVA",
       "cadastrado em": "25/07/2003",
       "cnes": "2023083",
+      "coordenadas": {
+        "lat": -22.956540,
+        "lng":-47.079040
+      },
       "dependencia": "MANTIDA",
       "diretor clinico": {
         "gerente": {
@@ -264,11 +292,15 @@
       "uf": "SP",
       "ultima atualizacao nacional": "01/04/2022"
     },
-    "8": {
+    {
       "atualizacao na base local": "23/09/2021",
       "bairro": "CJ HAB EDIVALDO ANTO",
       "cadastrado em": "29/06/2006",
       "cnes": "3950220",
+      "coordenadas": {
+        "lat": -22.846700,
+        "lng":-47.143200
+      },
       "dependencia": "MANTIDA",
       "diretor clinico": {
         "gerente": {
@@ -300,11 +332,15 @@
       "uf": "SP",
       "ultima atualizacao nacional": "01/04/2022"
     },
-    "10": {
+    {
       "atualizacao na base local": "28/08/2020",
       "bairro": "CENTRO",
       "cadastrado em": "25/07/2003",
       "cnes": "2022729",
+      "coordenadas": {
+        "lat": -22.902760,
+        "lng":-47.055540
+      },
       "dependencia": "MANTIDA",
       "diretor clinico": {
         "gerente": {
@@ -336,11 +372,15 @@
       "uf": "SP",
       "ultima atualizacao nacional": "01/04/2022"
     },
-    "9": {
+    {
       "atualizacao na base local": "25/11/2021",
       "bairro": "JD SANTA GENEBRA",
       "cadastrado em": "16/06/2004",
       "cnes": "2023199",
+      "coordenadas": {
+        "lat": -22.855790,
+        "lng":-47.064250
+      },
       "dependencia": "MANTIDA",
       "diretor clinico": {
         "gerente": {
@@ -363,5 +403,5 @@
       "uf": "SP",
       "ultima atualizacao nacional": "01/04/2022"
     }
-  }
+  ]
 }
