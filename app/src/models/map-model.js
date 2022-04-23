@@ -1,41 +1,18 @@
-import Parser from '../utils/parser'
+import { connect } from "react-redux";
 
-const getData = () => {
+function MapModel({places,marker}){
 
-    let json = require('../json_test.json')
+    // console.log(places)
 
-    let unidades = json.Unidade
-
-    let count = 1
-
-    let data = {}
-
-    while (unidades[count] !== undefined){
-        let endecSub = `${unidades[count].logradouro}, ${unidades[count].numero}, ${unidades[count].bairro}, ${unidades[count].municipio}, SP`
-        let addrToParse = `${unidades[count].logradouro},%${unidades[count].numero},%${unidades[count].bairro},%CAMPINAS,%SAO%PAULO,%BRAZIL`
-        Parser(addrToParse)
-
-        //PARSER
-
-        let dataSub = {
-            nome: unidades[count].nome,
-            endereco: endecSub,
-            cadastrado_em: unidades[count]['cadastrado em'],
-            cnes: unidades[count].cnes,
-            complemento: unidades[count].complemento,
-            dependencia: unidades[count].dependencia,
-            telefone: unidades[count].telefone,
-            servicos: unidades[count].servicos,
-            atualizacao_na_base_local: unidades[count]['atualizacao na base local'],
-            tipo_de_estabelecimento: unidades[count]['tipo de estabelecimento'],
-            especializacoes: unidades[count].especializacoes,
-        }   
-
-        data[count] = dataSub
-
-        //NAO MEXE
-        count += 1
-    }
+    
 }
 
-export default getData
+// const mapStateToProps = (state) => ({
+//     places: state.places,
+//     marker: state.mainMarker
+// })
+
+export default connect(state => ({
+    places: state.places,
+    marker: state.mainMarker
+}))(MapModel)
