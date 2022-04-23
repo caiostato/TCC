@@ -1,5 +1,5 @@
 import { React } from 'react'
-
+import {Link} from 'react-router-dom'
 import './menu.css'
 import './header.css'
 import './list.css'
@@ -7,8 +7,20 @@ import './footer.css'
 
 import iconIFSP from '../../assets/images/iconifsp.ico'
 import iconGithub from '../../assets/images/25231.ico'
+import goIcon from '../../assets/images/goBtn'
 
-const Menu = () => {
+const Menu = ({places}) => {
+
+    let items = []
+    const limit = 35
+
+    for(let i=0;i <=15; i++){
+
+        if(places[i] !== undefined){
+            items.push(places[i])
+        }
+    }
+    
 
     return(
         <div className='menu'>
@@ -30,6 +42,37 @@ const Menu = () => {
                     <input type='text'name='endereco' placeholder='Digite o endereço'>
                     </input>
                 </div>
+
+                <div className='list-content'>
+
+                {items?.map((item,index)=> {
+
+                    return(
+                    <Link to={'/'+index}>
+                        <div key={index} className='item-list'>
+                            <div className='content'>
+                                <div className='text'>
+                                    {item.nome}
+                                </div>
+
+                                <div className='button' onClick={()=>{
+
+                                }}>
+                                    <img className='icon' src={goIcon} alt='goicon'/>
+                                </div> 
+                            </div>
+                        </div>
+                    </Link>
+                    )
+                })
+                }
+
+
+                </div>
+
+
+
+
             </div>
             <div className='footer'>
                 <div className='divider'>
