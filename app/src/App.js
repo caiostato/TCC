@@ -1,6 +1,9 @@
 import { React } from 'react'
+import { Provider } from 'react-redux'
 
 import Routing from './routes/routes';
+
+import store from './context'
 
 import './app.css';
 
@@ -8,7 +11,9 @@ import './app.css';
 function App() {
 
   return (
-      <Routing/>
+      <Provider store={store}>
+        <Routing/>
+      </Provider>
   );
 }
 
