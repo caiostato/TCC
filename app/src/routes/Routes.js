@@ -1,8 +1,7 @@
 import React from "react";
 import { Route,Routes, BrowserRouter } from "react-router-dom";
 
-
-import Controller from "../controllers";
+import Controller from "../components";
 
 const Routing = () => {
 
@@ -12,8 +11,6 @@ const Routing = () => {
                     <Route path="/" exact element={
                         <Controller />
                     }/>
-
-                    
             </Routes>    
         </BrowserRouter>
     )
