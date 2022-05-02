@@ -3,10 +3,9 @@ import { Provider } from 'react-redux'
 
 import Routing from './routes/routes';
 
-import store from './context'
+import store from './store'
 
 import './app.css';
-
 
 function App() {
 
