@@ -6,12 +6,13 @@ const setMainMarker = (lat,lng) => ({
     }
 });
 
-const setPlaces = (data) => ({
-    type: "SET_PLACES",
+const setActivePlace = (item,index) => ({
+    type: "SET_ACTIVE_PLACE",
     payload: { 
-        places: data
+        data:item,
+        index:index
     }
 });
 
 
-export { setMainMarker, setPlaces }
+export { setMainMarker, setActivePlace }
