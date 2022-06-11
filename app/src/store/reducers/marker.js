@@ -24,6 +24,14 @@ function notes(state = INITIAL_STATE, action) {
             places:state.places
         })
 
+    case "SET_PLACES":
+
+        return ({
+            mainMarker:state.mainMarker,
+            activePlace:state.activePlace,
+            places:action.payload.data
+        })
+
     case "SET_ACTIVE_PLACE":
 
         let activePlace = {

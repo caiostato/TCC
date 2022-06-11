@@ -1,0 +1,6 @@
+Menu {
+  z-index: 2;
+}
+Map {
+  z-index: 1;
+}

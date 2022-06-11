@@ -3,6 +3,8 @@ import { Provider } from 'react-redux'
 
 import Routing from './routes/routes';
 
+import SetData from './utils/setData';
+
 import store from './store'
 
 import './app.css';

@@ -108,7 +108,7 @@ const List = styled.div`
 `;
 const Item = styled.div`
 
-display: flex;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;

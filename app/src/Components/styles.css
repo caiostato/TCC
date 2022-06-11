@@ -4,3 +4,7 @@ Menu {
 Map {
     z-index: 1;
 }
+
+.template img {
+    object-fit: fill;
+}

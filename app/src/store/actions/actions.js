@@ -14,5 +14,12 @@ const setActivePlace = (item,index) => ({
     }
 });
 
+const setPlaces = (places) => ({
+    type: "SET_PLACES",
+    payload: { 
+        data:places,
+    }
+});
 
-export { setMainMarker, setActivePlace }
+
+export { setMainMarker, setActivePlace, setPlaces }
